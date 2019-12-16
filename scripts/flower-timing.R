@@ -58,9 +58,9 @@ updateFlowerNumbers <- function(originalData, IDcolumn = 1){
 }
 
 
-raw <- read_csv("input/G11_flowering.csv")
+rawG11 <- read_csv("input/G11_flowering.csv")
 
-processedG11_flowering <- updateFlowerNumbers(raw)
+processedG11_flowering <- updateFlowerNumbers(rawG11)
 
 write_csv(processedG11_flowering, "output/G11_flowering_longFormat.csv")
 
