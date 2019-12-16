@@ -1,0 +1,30 @@
+---
+title: "kiwifruit-flower-timing-script"
+output: md_document
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+
+source("./scripts/flower-timing.R")
+
+```
+
+This is a small script to simplify the process of filling out the flower timing data sets.
+The process involves swapping NAs for 0 and carrying over the maximum count for canes that finished early so that there is a numerical value for each cane in each column.
+
+A log of unusual events is kept and appended to the final data frame. At this point in dev the only observation that is 'caught' is when the value in the current column is smaller than the maximum value seen so far, this is done to make sure the percentage open cannot go *down*.
+
+The final step is to `gather` the matrix into long format with the column names as the key factor.
+
+## Example
+
+Raw data file
+```{r}
+head(rawG11)
+
+```
+After processing:
+
+```{r}
+head(processedG11_flowering)
+```
